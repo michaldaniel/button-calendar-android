@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbar_icon_size">24dp</dimen>
+    <dimen name="progressbar_size">64dp</dimen>
+    <dimen name="widgets_margin">16dp</dimen>
+    <dimen name="widgets_wide_margin">32dp</dimen>
+    <dimen name="widgets_narrow_margin">8dp</dimen>
+    <dimen name="default_text_size">16sp</dimen>
+    <dimen name="large_text_size">18sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+</resources>

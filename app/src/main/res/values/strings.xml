@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Button calendar</string>
+    <string name="link_error">You don\'t have any app that can open this link</string>
+    <string name="about_title">About application</string>
+    <string name="about_description">
+        Simple application to visually track a new year\'s resolutions progress on a button calendar. Marking successful days of implementing new habits.
+    </string>
+    <string name="about_version">Version %s</string>
+    <string name="about_website">Website</string>
+    <string name="about_google_play_store">Google Play Store</string>
+    <string name="about_email">E-mail</string>
+    <string name="about_bug_reports">Bug reports</string>
+    <string name="about_privacy_policy">Privacy policy</string>
+    <string name="about_source_code">Source code</string>
+    <string name="about_license">Gnu GPLv3</string>
+    <string name="about_credits">Show credits</string>
+    <string name="about_select_mail_client">Select your mail client</string>
+    <string name="about_mail_intent_error">There are no email clients installed.</string>
+    <string name="about_support_mail_title">Support request for Storytelling Engine app</string>
+    <string name="about_support_mail_message">Please describe your issue here.</string>
+    <string name="about_application">Application</string>
+    <string name="about_developer_info"><![CDATA[Developer info & contact]]></string>
+    <string name="about_support">Support</string>
+    <string name="about_legal">Legal</string>
+    <string name="about_attributions">Attributions</string>
+</resources>

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="eu.morningbird.buttoncalendar.viewmodel.AboutViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@android:color/black"
+        tools:context="eu.morningbird.buttoncalendar.view.AboutActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            android:elevation="0dp"
+            android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fadingEdge="vertical"
+            android:fadingEdgeLength="@dimen/widgets_wide_margin"
+            android:requiresFadingEdge="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintCircleRadius="@dimen/widgets_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="1.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/descriptionTextView"
+                    style="@style/TextAppearance.MaterialComponents.Body1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/about_description"
+                    android:textSize="@dimen/default_text_size"
+                    app:layout_constraintBottom_toTopOf="@+id/descriptionSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/descriptionSeparator"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/widgets_margin"
+                    android:background="@color/colorLightAccent"
+                    app:layout_constraintBottom_toTopOf="@+id/appInfoTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionTextView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/appInfoTextView"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/widgets_margin"
+                    android:layout_marginTop="@dimen/widgets_margin"
+                    android:text="@string/about_application"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/default_text_size"
+                    app:layout_constraintBottom_toTopOf="@+id/versionItemConstraintLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionSeparator" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/versionItemConstraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/widgets_narrow_margin"
+                    app:layout_constraintBottom_toTopOf="@+id/appInfoRecyclerView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/appInfoTextView">
+
+                    <ImageView
+                        android:id="@+id/versionItemImageView"
+                        android:layout_width="@dimen/large_text_size"
+                        android:layout_height="@dimen/large_text_size"
+                        android:layout_marginStart="@dimen/widgets_margin"
+                        android:src="@drawable/ic_version"
+                        android:tint="@android:color/primary_text_dark"
+                        android:tintMode="src_atop"
+                        app:layout_constraintBottom_toBottomOf="@+id/versionItemTextView"
+                        app:layout_constraintEnd_toEndOf="@+id/versionItemTextView"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/versionItemTextView"
+                        tools:ignore="ContentDescription" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/versionItemTextView"
+                        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/widgets_margin"
+                        android:layout_marginTop="@dimen/widgets_margin"
+                        android:layout_marginEnd="@dimen/widgets_margin"
+                        android:layout_marginBottom="@dimen/widgets_margin"
+                        android:text="@{@string/about_version(viewModel.version)}"
+                        android:textSize="@dimen/default_text_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/versionItemImageView"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Version 1.0.0" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/appInfoRecyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintBottom_toTopOf="@+id/appInfoSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/versionItemConstraintLayout"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_about" />
+
+                <View
+                    android:id="@+id/appInfoSeparator"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/widgets_margin"
+                    android:background="@color/colorLightAccent"
+                    app:layout_constraintBottom_toTopOf="@+id/developerInfoTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/appInfoRecyclerView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/developerInfoTextView"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/widgets_margin"
+                    android:layout_marginTop="@dimen/widgets_margin"
+                    android:text="@string/about_developer_info"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/default_text_size"
+                    app:layout_constraintBottom_toTopOf="@+id/developerInfoRecyclerView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/appInfoSeparator"
+                    tools:ignore="AllCaps" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/developerInfoRecyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/widgets_narrow_margin"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintBottom_toTopOf="@+id/developerInfoSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/developerInfoTextView"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_about" />
+
+                <View
+                    android:id="@+id/developerInfoSeparator"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/widgets_margin"
+                    android:background="@color/colorLightAccent"
+                    app:layout_constraintBottom_toTopOf="@+id/supportInfoTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/developerInfoRecyclerView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/supportInfoTextView"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/widgets_margin"
+                    android:layout_marginTop="@dimen/widgets_margin"
+                    android:text="@string/about_support"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/default_text_size"
+                    app:layout_constraintBottom_toTopOf="@+id/supportInfoRecyclerView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/developerInfoSeparator" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/supportInfoRecyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/widgets_narrow_margin"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintBottom_toTopOf="@+id/supportInfoSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/supportInfoTextView"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_about" />
+
+                <View
+                    android:id="@+id/supportInfoSeparator"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/widgets_margin"
+                    android:background="@color/colorLightAccent"
+                    app:layout_constraintBottom_toTopOf="@+id/legalInfoTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/supportInfoRecyclerView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/legalInfoTextView"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/widgets_margin"
+                    android:layout_marginTop="@dimen/widgets_margin"
+                    android:text="@string/about_legal"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/default_text_size"
+                    app:layout_constraintBottom_toTopOf="@+id/legalInfoRecyclerView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/supportInfoSeparator" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/legalInfoRecyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/widgets_narrow_margin"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintBottom_toTopOf="@+id/legalInfoSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/legalInfoTextView"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_about" />
+
+                <View
+                    android:id="@+id/legalInfoSeparator"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/widgets_margin"
+                    android:background="@color/colorLightAccent"
+                    app:layout_constraintBottom_toTopOf="@+id/attributionsInfoTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/legalInfoRecyclerView" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/attributionsInfoTextView"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/widgets_margin"
+                    android:layout_marginTop="@dimen/widgets_margin"
+                    android:text="@string/about_attributions"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/default_text_size"
+                    app:layout_constraintBottom_toTopOf="@+id/attributionsInfoRecyclerView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/legalInfoSeparator" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/attributionsInfoRecyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/widgets_narrow_margin"
+                    android:layout_marginBottom="32dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/attributionsInfoTextView"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_about" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
