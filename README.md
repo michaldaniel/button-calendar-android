@@ -13,6 +13,10 @@ Simple application to visually track a new year's resolutions progress on a butt
 * [Google Play Store](https://play.google.com/store/apps/details?id=eu.morningbird.buttoncalendar)
 * [Source code from Github](https://github.com/michaldaniel/button-calendar-android/archive/master.zip)
 
+### Screenshots
+
+<img src="https://user-images.githubusercontent.com/1345297/71581349-09f36b80-2b05-11ea-84a0-2a2be40d9db6.png" alt="drawing" width="256"/> <img src="https://user-images.githubusercontent.com/1345297/71581350-0a8c0200-2b05-11ea-9199-1a8c970289bf.png" alt="drawing" width="256"/> <img src="https://user-images.githubusercontent.com/1345297/71581351-0a8c0200-2b05-11ea-917b-9c11cf0078c7.png" alt="drawing" width="256"/>
+
 ### Support
 
 #### [Report a bug 🐛](https://github.com/michaldaniel/button-calendar-android/issues/new)
