@@ -6,7 +6,7 @@
 
 ### About
 
-Simple application to visually track a new year's resolutions progress on a button calendar. Marking successful days of implementing new habits.
+Simple application to visually track a new year's resolutions progress on a button calendar by marking successful days of implementing new habits.
 
 ### Get it
 
@@ -55,4 +55,4 @@ along with this program. If not, see <http://www.gnu.org/licenses/>
 
 ### Legal
 
-* [Application privacy policy 🕵️](https://morningbird.eu/app/button-calendar-android/privacy)
+* [Application privacy policy 🕵️](https://morningbird.eu/app/buttoncalendar/privacy)

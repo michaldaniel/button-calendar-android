@@ -3,7 +3,7 @@
     <string name="link_error">You don\'t have any app that can open this link</string>
     <string name="about_title">About application</string>
     <string name="about_description">
-        Simple application to visually track a new year\'s resolutions progress on a button calendar. Marking successful days of implementing new habits.
+        Simple application to visually track a new year\'s resolutions progress on a button calendar by marking successful days of implementing new habits.
     </string>
     <string name="about_version">Version %s</string>
     <string name="about_website">Website</string>
