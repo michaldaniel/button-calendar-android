@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Button calendar</string>
+    <string name="app_name">Button Calendar</string>
     <string name="link_error">You don\'t have any app that can open this link</string>
     <string name="about_title">About application</string>
     <string name="about_description">

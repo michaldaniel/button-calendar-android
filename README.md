@@ -1,4 +1,4 @@
-# "Button calendar" android application
+# "Button Calendar" android application
 
 ## Visually track a new year's resolutions progress on a button calendar 📅.
 
